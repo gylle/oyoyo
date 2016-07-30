@@ -152,7 +152,7 @@ class IRCClient:
             while not self._end:
                 try:
                     buffer += self.socket.recv(1024)
-                except socket.error, e:
+                except socket.error as e:
                     try:  # a little dance of compatibility to get the errno
                         errno = e.errno
                     except AttributeError:
@@ -227,10 +227,10 @@ class IRCApp:
             for client, clientdesc in self._clients.iteritems():
                 if clientdesc.con is None:
                     clientdesc.con = client.connect()
-                
+
                 try:
                     clientdesc.con.next()
-                except Exception, e:
+                except Exception as e:
                     logging.error('client error %s' % e)
                     logging.error(traceback.format_exc())
                     if clientdesc.autoreconnect:
@@ -242,7 +242,7 @@ class IRCApp:
                         clientdesc.con = False 
                 else:
                     found_one_alive = True
-                
+
             if not found_one_alive:
                 logging.info('nothing left alive... quiting')
                 self.stop() 
