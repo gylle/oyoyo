@@ -14,7 +14,7 @@ extras = {}
 
 setup(
     name='oyoyo',
-    version="",
+    version="0.0.1",
     description='a fast, simple irc module suitable for clients, bots and games',
     author='Dunk Fordyce, Daniel da Silva (current)',
     author_email='dunkfordyce@gmail.com, meltingwax@gmail.com',
